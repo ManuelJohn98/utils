@@ -1,0 +1,1 @@
+This project is meant for various utility functions that help automate certain processes while working with a PC. The project is written in Python and is meant to be run on Windows. The project is still in development but the individual parts are already functional.
