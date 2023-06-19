@@ -61,11 +61,11 @@ def main() -> None:
                 logging.info("Successfully clocked in and out for {}.".format(employer))
             except Exception as e:
                 logging.error("Failed to clock in and out for {}: {}".format(employer, e))
-            if input("Press enter to exit or enter '0' to clock in and out again...") == "0":
+            if input("Press enter to exit or enter '0' to clock in and out again...\n") == "0":
                 continue
             break
         except KeyboardInterrupt:
-            if input("\nAre you sure you want to exit? Press enter to exit or enter '0' to clock in and out again...") == "0":
+            if input("\nAre you sure you want to exit? Press enter to exit or enter '0' to clock in and out again...\n") == "0":
                 continue
             logging.info("Keyboard interrupt.\nExiting...")
             break
