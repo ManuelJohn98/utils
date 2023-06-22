@@ -5,6 +5,10 @@ This file provides functionality to automatically clock in and out of work, as w
 import os
 import logging
 import datetime
+import locale
+
+# set locale for datetime to Germany
+locale.setlocale(locale.LC_ALL, "de_DE")
 
 # setup logging to console and file
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", handlers=[logging.StreamHandler(), logging.FileHandler("C:\\Users\\{}\\Documents\\Coding\\utils\\logging\\clock_work_time.log".format(os.getlogin()))])
