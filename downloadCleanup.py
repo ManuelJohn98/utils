@@ -28,7 +28,12 @@ def cleanup():
         try:
             if os.path.exists("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), extension)):
                 # Move the file into the respective folder
-                os.rename("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), file), "C:\\Users\\{}\\Downloads\\{}\\{}".format(os.getlogin(), extension, file))
+                try:
+                    os.rename("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), file), "C:\\Users\\{}\\Downloads\\{}\\{}".format(os.getlogin(), extension, file))
+                except FileExistsError:
+                    conflicting_target_files = [target_file if file in target_file else ... for target_file in os.listdir("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), extension))]
+                    # Rename the file to avoid overwriting
+                    os.rename("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), file), "C:\\Users\\{}\\Downloads\\{}\\{}-{}".format(os.getlogin(), extension, len(conflicting_target_files), file))
             else:
                 # Create a new folder for the extension
                 os.mkdir("C:\\Users\\{}\\Downloads\\{}".format(os.getlogin(), extension))
